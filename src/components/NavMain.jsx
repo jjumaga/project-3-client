@@ -7,6 +7,7 @@ import "../styles/NavMain.css";
 
 const NavMain = (props) => {
   const { context } = props;
+  console.log(props);
 
   function handleLogout() {
     apiHandler
@@ -22,15 +23,17 @@ const NavMain = (props) => {
   return (
     <nav className="NavMain">
       <NavLink exact to="/">
-        <h3 className="logo">App name</h3>
+        <h3 className="logo">HealthHub</h3>
       </NavLink>
       <ul className="nav-list">
         {context.isLoggedIn && (
           <React.Fragment>
+            <li>Welcome, {context.user && context.user.email}</li>
             <li>
-              <NavLink to="/profile">
-                {context.user && context.user.email}
-              </NavLink>
+              <NavLink to="/PatientList">Find a Patient</NavLink>
+            </li>
+            <li>
+              <NavLink to="/MyPatients">My Patients</NavLink>
             </li>
             <li>
               <p onClick={handleLogout}>Logout</p>

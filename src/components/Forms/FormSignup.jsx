@@ -1,12 +1,16 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Redirect } from "react-router-dom";
 import { UserContext } from "../Auth/UserContext";
 import apiHandler from "../../api/apiHandler";
+import "../../styles/form.css";
 
 class FormSignup extends Component {
   static contextType = UserContext;
 
   state = {
+    firstName: "",
+    lastName: "",
+    jobTitle: "",
     email: "",
     password: "",
   };
@@ -38,6 +42,30 @@ class FormSignup extends Component {
 
     return (
       <form onSubmit={this.handleSubmit}>
+        <label htmlFor="firstName">First Name</label>
+        <input
+          onChange={this.handleChange}
+          value={this.state.firstName}
+          type="text"
+          id="firstName"
+          name="firstName"
+        />
+        <label htmlFor="lastName">Last Name</label>
+        <input
+          onChange={this.handleChange}
+          value={this.state.lastName}
+          type="text"
+          id="lastName"
+          name="lastName"
+        />
+        <label htmlFor="jobTitle">Job Title</label>
+        <input
+          onChange={this.handleChange}
+          value={this.state.jobTitle}
+          type="text"
+          id="jobTitle"
+          name="jobTitle"
+        />
         <label htmlFor="email">Email</label>
         <input
           onChange={this.handleChange}

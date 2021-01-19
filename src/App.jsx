@@ -6,6 +6,10 @@ import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
+import CreateDocument from "./pages/CreateDocument";
+import UpdateDocument from "./pages/UpdateDocument";
+import PatientList from "./pages/PatientList";
+import MyPatients from "./pages/MyPatients";
 
 function App() {
   return (
@@ -15,7 +19,19 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/signin" component={Signin} />
         <Route exact path="/signup" component={Signup} />
-        <ProtectedRoute exact path="/profile" component={Profile} />
+        <ProtectedRoute
+          exact
+          path="/CreateDocument"
+          component={CreateDocument}
+        />
+        <ProtectedRoute
+          exact
+          path="/UpdateDocument/:id"
+          component={UpdateDocument}
+        />
+        <ProtectedRoute exact path="/PatientList" component={PatientList} />
+        <ProtectedRoute exact path="/MyPatients" component={MyPatients} />
+        <ProtectedRoute exact path="/Profile" component={Profile} />
       </Switch>
     </div>
   );

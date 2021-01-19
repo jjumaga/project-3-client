@@ -44,10 +44,42 @@ export default {
       .catch(errorHandler);
   },
 
-  getItems() {
+  createDocument(data) {
     return service
-      .get("/api/items")
+      .post("/api/documents", data)
       .then((res) => res.data)
       .catch(errorHandler);
+  },
+
+  getDocuments() {
+    return service
+      .get("/api/documents")
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+  getOneDocument(id) {
+    return service
+      .get(`/api/documents/${id}`)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+  updateDocument(id, data) {
+    return service
+      .patch(`api/documents/${id}`, data)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+  getPatients() {
+    return service
+      .get("/api/patient")
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+  addNewPatient(patientId) {
+    return service.patch("/api/users/me/patient", { id: patientId });
   },
 };

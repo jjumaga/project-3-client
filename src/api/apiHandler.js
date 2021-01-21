@@ -58,6 +58,16 @@ export default {
       .catch(errorHandler);
   },
 
+  getPatientDocuments(patientId) {
+    return (
+      service
+        ///api/patient/${patientId}
+        .get("/api/patient/" + patientId + "/documents")
+        .then((res) => res.data)
+        .catch(errorHandler)
+    );
+  },
+
   getOneDocument(id) {
     return service
       .get(`/api/documents/${id}`)
@@ -72,6 +82,13 @@ export default {
       .catch(errorHandler);
   },
 
+  removeDocument(documentId) {
+    return service
+      .delete(`/api/documents/${documentId}`)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
   getPatients() {
     return service
       .get("/api/patient")
@@ -80,6 +97,22 @@ export default {
   },
 
   addNewPatient(patientId) {
-    return service.patch("/api/users/me/patient", { id: patientId });
+    return service
+      .patch("/api/users/me/patient", { id: patientId })
+      .catch(errorHandler);
+  },
+
+  getMyPatients() {
+    return service
+      .get("/api/users/me/patient")
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+  getPatientProfile(patientId) {
+    return service
+      .get(`/api/patient/${patientId}`)
+      .then((res) => res.data)
+      .catch(errorHandler);
   },
 };

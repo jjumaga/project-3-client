@@ -1,0 +1,43 @@
+#home-header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#header-title {
+    font-size: 60px;
+    color:rgb(46, 96, 170)
+}
+
+#header-desc {
+    font-size: 25px;
+    color:rgb(46, 96, 170)
+}
+
+#home-body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+}
+
+.home-section {
+    padding: 40px;
+    margin: 10px;
+    background-color: rgb(91, 176, 255);
+    height: 40vh;
+    width: 40vw;
+}
+
+.section-title {
+    text-align: center;
+}
+
+.section-desc {
+    text-align:left;
+}
+
+#home-footer {
+    text-align: center;
+}

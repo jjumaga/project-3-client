@@ -2,12 +2,12 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { withUser } from "../components/Auth/withUser";
 import apiHandler from "../api/apiHandler";
+import background from "../homepage-banner.png";
 
 import "../styles/NavMain.css";
 
 const NavMain = (props) => {
   const { context } = props;
-  console.log(props);
 
   function handleLogout() {
     apiHandler
@@ -21,7 +21,15 @@ const NavMain = (props) => {
   }
 
   return (
-    <nav className="NavMain">
+    <nav
+      style={{
+        backgroundImage: `url(${background})`,
+        backgroundRepeat: "no-repeat",
+        height: "50vh",
+        width: "70vw",
+      }}
+      id="home-header"
+    >
       <NavLink exact to="/">
         <h3 className="logo">HealthHub</h3>
       </NavLink>

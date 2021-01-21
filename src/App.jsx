@@ -21,7 +21,7 @@ function App() {
         <Route exact path="/signup" component={Signup} />
         <ProtectedRoute
           exact
-          path="/CreateDocument"
+          path="/CreateDocument/:id"
           component={CreateDocument}
         />
         <ProtectedRoute
@@ -31,7 +31,7 @@ function App() {
         />
         <ProtectedRoute exact path="/PatientList" component={PatientList} />
         <ProtectedRoute exact path="/MyPatients" component={MyPatients} />
-        <ProtectedRoute exact path="/Profile" component={Profile} />
+        <ProtectedRoute exact path="/Profile/:id" component={Profile} />
       </Switch>
     </div>
   );

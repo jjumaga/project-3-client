@@ -1,0 +1,26 @@
+.patient-profile-btn {
+    background-color:transparent;
+    text-decoration: transparent;
+}
+
+.patient-list-div {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.my-patients-section {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: rgb(91, 176, 255);
+    margin: 10px;
+    width: 20vw;
+    align-items: center;
+}
+
+.patient-profile-btn {
+    border-radius: 25px;
+    border-color:rgb(116, 119, 122);
+    padding: 5px;
+}

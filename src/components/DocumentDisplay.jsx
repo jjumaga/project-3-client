@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-//import Button from "../Button";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import apiHandler from "../api/apiHandler";
 
 export class DocumentDisplay extends Component {
@@ -9,21 +8,34 @@ export class DocumentDisplay extends Component {
     documents: [],
   };
 
-  //getDocuments = (selectedDocument) => {
-  //  this.setState({ selectedDocument });
-  //};
-
+  //getpatientdocuments
   //launched automatically lors du premier page load AFTER the first render
   componentDidMount() {
     apiHandler // axios===promise
-      .getDocuments(document)
-      .then((documents) => this.setState({ documents })) //because my state is documents, I need to tell it to equal document (what I recuper from my DB)
+      .getPatientDocuments(this.props.match.params.id)
+      .then((documents) => this.setState({ documents }))
       .catch((err) => {
         console.log(err);
       });
   }
 
+  handleDelete(documentId) {
+    apiHandler
+      .removeDocument(documentId)
+      .then(() => {
+        this.setState({
+          documents: this.props.documents.filter(
+            (document) => document._id !== documentId
+          ),
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   render() {
+    console.log(this.props);
     return (
       <div>
         <h2>Patient Documents</h2>
@@ -54,12 +66,21 @@ export class DocumentDisplay extends Component {
                         <button>Edit File</button>
                       </Link>
                     </td>
+                    <td>
+                      <button
+                        onClick={() => {
+                          this.handleDelete(document._id);
+                        }}
+                      >
+                        Delete File
+                      </button>
+                    </td>
                   </tr>
                 );
               })}
           </tbody>
         </table>
-        <Link to={"/CreateDocument"}>
+        <Link to={`/CreateDocument/${this.props.match.params.id}`}>
           <button>Add File</button>
         </Link>
       </div>
@@ -67,4 +88,4 @@ export class DocumentDisplay extends Component {
   }
 }
 
-export default DocumentDisplay;
+export default withRouter(DocumentDisplay);

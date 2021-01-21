@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import apiHandler from "../../api/apiHandler";
 import { withUser } from "../Auth/withUser";
-import { withRouter } from "react-router";
+import { withRouter } from "react-router-dom";
 import { buildFormData } from "../../tools.js";
 import "../../styles/form.css";
 
@@ -21,7 +21,7 @@ class FormCreateDocument extends Component {
   handleChange = (event) => {
     const key = event.target.name;
     const value =
-      event.target.type == "file" ? event.target.files[0] : event.target.value;
+      event.target.type === "file" ? event.target.files[0] : event.target.value;
     this.setState({ [key]: value });
   };
 
@@ -29,13 +29,14 @@ class FormCreateDocument extends Component {
     event.preventDefault();
     const fd = new FormData();
     const { httpResponse, ...data } = this.state;
+    data.patient = this.props.match.params.id;
     // data.document = this.imageRef.current.files[0]
     buildFormData(fd, data); // You can find this function in ./src/utils.js
     //// Function implemented by user Raj Pawam Gumdal @stackoverflow : ) => https://stackoverflow.com/a/42241875/13374041
     apiHandler
       .createDocument(fd)
-      .then((apiResponse) => {
-        this.props.history.push("/profile");
+      .then(() => {
+        this.props.history.push("/profile/" + this.props.patient);
       })
       .catch((err) => {
         console.log(err);
@@ -46,11 +47,14 @@ class FormCreateDocument extends Component {
     //if (this.context.user) {
     //  return <Redirect to="/" />;
     //}
-
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form
+        onSubmit={() => {
+          this.handleSubmit(this.props.match.params.id);
+        }}
+      >
         <div>
-          <label class="desc" id="title1" htmlFor="docType">
+          <label className="desc" id="title1" htmlFor="docType">
             Document Type
           </label>
           <div>
@@ -65,7 +69,7 @@ class FormCreateDocument extends Component {
         </div>
 
         <div>
-          <label class="desc" id="title2" htmlFor="date">
+          <label className="desc" id="title2" htmlFor="date">
             Date
           </label>
           <div>
@@ -80,7 +84,7 @@ class FormCreateDocument extends Component {
         </div>
 
         <div>
-          <label class="desc" id="title3" htmlFor="uploadedBy">
+          <label className="desc" id="title3" htmlFor="uploadedBy">
             Uploaded By
           </label>
           <div>
@@ -95,7 +99,7 @@ class FormCreateDocument extends Component {
         </div>
 
         <div>
-          <label class="desc" id="title4" htmlFor="document">
+          <label className="desc" id="title4" htmlFor="document">
             Upload Document
           </label>
           <div>
@@ -110,7 +114,7 @@ class FormCreateDocument extends Component {
         </div>
 
         <div>
-          <label class="desc" id="title5" htmlFor="notes">
+          <label className="desc" id="title5" htmlFor="notes">
             Notes
           </label>
           <div>
@@ -119,7 +123,7 @@ class FormCreateDocument extends Component {
               onChange={this.handleChange}
               value={this.state.notes}
               name="notes"
-              spellcheck="true"
+              spellCheck="true"
             ></textarea>
           </div>
         </div>

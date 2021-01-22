@@ -3,6 +3,18 @@ import apiHandler from "../api/apiHandler";
 //import { withUser } from "../components/Auth/withUser"; //import my current user info as props
 import { withRouter } from "react-router-dom";
 import "../styles/myPatients.css";
+const dayjs = require("dayjs");
+require("dayjs/locale/en");
+var advancedFormat = require("dayjs/plugin/advancedFormat");
+var LocalizedFormat = require("dayjs/plugin/localizedFormat");
+var utc = require("dayjs/plugin/utc");
+var timezone = require("dayjs/plugin/timezone");
+dayjs.extend(utc);
+dayjs.extend(timezone);
+dayjs.extend(advancedFormat);
+dayjs.extend(LocalizedFormat);
+var relativeTime = require("dayjs/plugin/relativeTime");
+dayjs.extend(relativeTime);
 
 class MyPatients extends Component {
   state = {
@@ -39,7 +51,7 @@ class MyPatients extends Component {
             <div className="patient-list-div">
               <section className="my-patients-section" key={patient._id}>
                 <h3>{`${patient.firstName} ${patient.lastName}`}</h3>
-                <p>{patient.birthDate}</p>
+                <p>{dayjs(`${patient.birthDate}`).format("DD/MM/YYYY")}</p>
                 <button
                   className="patient-profile-btn"
                   onClick={() => {

@@ -32,7 +32,8 @@ class FormUpdateDocument extends Component {
     apiHandler
       .updateDocument(this.props.match.params.id, fd)
       .then((data) => {
-        this.props.history.push("/profile");
+        console.log("data", data);
+        this.props.history.push("/profile/" + data.patient);
         //clear form
         //this.props.onDocumentUpdate(data);
         this.setState({

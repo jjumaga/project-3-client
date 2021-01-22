@@ -1,6 +1,18 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import apiHandler from "../api/apiHandler";
+const dayjs = require("dayjs");
+require("dayjs/locale/en");
+var advancedFormat = require("dayjs/plugin/advancedFormat");
+var LocalizedFormat = require("dayjs/plugin/localizedFormat");
+var utc = require("dayjs/plugin/utc");
+var timezone = require("dayjs/plugin/timezone");
+dayjs.extend(utc);
+dayjs.extend(timezone);
+dayjs.extend(advancedFormat);
+dayjs.extend(LocalizedFormat);
+var relativeTime = require("dayjs/plugin/relativeTime");
+dayjs.extend(relativeTime);
 
 export class DocumentDisplay extends Component {
   state = {
@@ -13,7 +25,10 @@ export class DocumentDisplay extends Component {
   componentDidMount() {
     apiHandler // axios===promise
       .getPatientDocuments(this.props.match.params.id)
-      .then((documents) => this.setState({ documents }))
+      .then((documents) => {
+        console.log(documents);
+        this.setState({ documents });
+      })
       .catch((err) => {
         console.log(err);
       });
@@ -22,9 +37,9 @@ export class DocumentDisplay extends Component {
   handleDelete(documentId) {
     apiHandler
       .removeDocument(documentId)
-      .then(() => {
+      .then((responseFromApi) => {
         this.setState({
-          documents: this.props.documents.filter(
+          documents: this.state.documents.filter(
             (document) => document._id !== documentId
           ),
         });
@@ -35,7 +50,6 @@ export class DocumentDisplay extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div>
         <h2>Patient Documents</h2>
@@ -43,22 +57,22 @@ export class DocumentDisplay extends Component {
           <thead id="this">
             <tr>
               <th>Document Type</th>
-              <th>Date Uploaded</th>
+              <th>Date</th>
               <th>Uploaded By</th>
               <th>Link</th>
               <th>Notes</th>
             </tr>
           </thead>
           <tbody>
-            {this.props.documents[0] &&
-              this.props.documents.map((document) => {
+            {this.state.documents &&
+              this.state.documents.map((document) => {
                 return (
                   <tr key={document._id}>
                     <td>{document.docType}</td>
-                    <td>{document.date}</td>
+                    <td>{dayjs(`${document.date}`).format("DD/MM/YYYY")}</td>
                     <td>{document.uploadedBy}</td>
                     <td>
-                      <button>{document.document}</button>
+                      <a href={document.document}>{document.document}</a>
                     </td>
                     <td>{document.notes}</td>
                     <td>

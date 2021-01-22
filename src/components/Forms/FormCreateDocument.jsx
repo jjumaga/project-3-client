@@ -36,7 +36,7 @@ class FormCreateDocument extends Component {
     apiHandler
       .createDocument(fd)
       .then(() => {
-        this.props.history.push("/profile/" + this.props.patient);
+        this.props.history.push("/profile/" + this.props.match.params.id);
       })
       .catch((err) => {
         console.log(err);
@@ -48,11 +48,7 @@ class FormCreateDocument extends Component {
     //  return <Redirect to="/" />;
     //}
     return (
-      <form
-        onSubmit={() => {
-          this.handleSubmit(this.props.match.params.id);
-        }}
-      >
+      <form onSubmit={this.handleSubmit}>
         <div>
           <label className="desc" id="title1" htmlFor="docType">
             Document Type

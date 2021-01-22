@@ -1,6 +1,5 @@
 import React from "react";
 import "../styles/home.css";
-import background from "../../src/homepage-banner.png";
 
 class Home extends React.Component {
   render() {
@@ -23,7 +22,7 @@ class Home extends React.Component {
               most important.
             </p>
           </section>
-          <section id="section-2" class="home-section">
+          <section id="section-2" className="home-section">
             <h2 className="section-title">Don't Miss a Thing</h2>
             <p className="section-desc">
               You are receiving a new patient in hospice that has come from home

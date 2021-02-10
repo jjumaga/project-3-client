@@ -78,62 +78,72 @@ class FormUpdateDocument extends Component {
   render() {
     return (
       this.state.documents && (
-        <form ref={this.formRef} onSubmit={this.handleSubmit}>
-          <h2>Edit Item</h2>
+        <div className="form">
+          <h2 className="form-message">Edit Item</h2>
 
-          <div>
-            <label className="label" htmlFor="docType">
-              Document Type
-            </label>
-            <input
-              onChange={this.handleChange}
-              type="text"
-              name="docType"
-              defaultValue={this.state.documents.docType}
-            />
-          </div>
+          <form
+            className="account-form"
+            ref={this.formRef}
+            onSubmit={this.handleSubmit}
+          >
+            <div className="form-info">
+              <label className="form-label" htmlFor="docType">
+                Document Type
+              </label>
+              <input
+                className="form-input"
+                onChange={this.handleChange}
+                type="text"
+                name="docType"
+                defaultValue={this.state.documents.docType}
+              />
 
-          <div>
-            <label htmlFor="date">Date</label>
-            <input
-              onChange={this.handleChange}
-              type="date"
-              name="date"
-              defaultValue={this.state.documents.date}
-            />
-          </div>
+              <label className="form-label" htmlFor="date">
+                Date
+              </label>
+              <input
+                className="form-input"
+                onChange={this.handleChange}
+                type="date"
+                name="date"
+                defaultValue={this.state.documents.date}
+              />
 
-          <div>
-            <label htmlFor="uploadedBy">Uploaded By</label>
-            <input
-              onChange={this.handleChange}
-              type="text"
-              name="uploadedBy"
-              defaultValue={this.state.documents.uploadedBy}
-            />
-          </div>
+              <label className="form-label" htmlFor="uploadedBy">
+                Uploaded By
+              </label>
+              <input
+                className="form-input"
+                onChange={this.handleChange}
+                type="text"
+                name="uploadedBy"
+                defaultValue={this.state.documents.uploadedBy}
+              />
 
-          <div>
-            <label htmlFor="document">Document</label>
-            <input
-              onChange={this.handleChange}
-              type="file"
-              name="document"
-              defaultValue={this.state.documents.document}
-            />
-          </div>
+              <label className="form-label" htmlFor="document">
+                Document
+              </label>
+              <input
+                className="form-input"
+                onChange={this.handleChange}
+                type="file"
+                name="document"
+                defaultValue={this.state.documents.document}
+              />
 
-          <div>
-            <label htmlFor="notes">Notes</label>
-            <textarea
-              onChange={this.handleChange}
-              name="notes"
-              defaultValue={this.state.documents.notes}
-            ></textarea>
-          </div>
-
-          <button>Edit Item</button>
-        </form>
+              <label className="form-label" htmlFor="notes">
+                Notes
+              </label>
+              <textarea
+                className="form-input"
+                onChange={this.handleChange}
+                name="notes"
+                defaultValue={this.state.documents.notes}
+              ></textarea>
+              <button className="submit-btn">Edit Item</button>
+            </div>
+          </form>
+        </div>
       )
     );
   }

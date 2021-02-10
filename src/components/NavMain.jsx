@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { withUser } from "../components/Auth/withUser";
 import apiHandler from "../api/apiHandler";
-import background from "../homepage-banner.png";
+//import background from "../banner.jpg";
 
 import "../styles/NavMain.css";
 
@@ -21,40 +21,51 @@ const NavMain = (props) => {
   }
 
   return (
-    <nav
-      style={{
-        backgroundImage: `url(${background})`,
-        backgroundRepeat: "no-repeat",
-        height: "50vh",
-        width: "70vw",
-      }}
-      id="home-header"
-    >
-      <NavLink exact to="/">
-        <h3 className="logo">HealthHub</h3>
-      </NavLink>
-      <ul className="nav-list">
+    <nav className="nav-bar">
+      <div className="logo">
+        <NavLink exact to="/">
+          <h3 className="bottom-border">HealthHub</h3>
+        </NavLink>
+      </div>
+
+      <ul className="nav-ul">
         {context.isLoggedIn && (
           <React.Fragment>
-            <li>Welcome, {context.user && context.user.email}</li>
-            <li>
-              <NavLink to="/PatientList">Find a Patient</NavLink>
+            <li className="welcome-msg">
+              Welcome, {context.user && context.user.email}
             </li>
-            <li>
-              <NavLink to="/MyPatients">My Patients</NavLink>
+
+            <li className="hover-style">
+              <NavLink to="/PatientList">
+                <span className="noselect">Find a Patient</span>
+              </NavLink>
             </li>
-            <li>
-              <p onClick={handleLogout}>Logout</p>
+
+            <li className="hover-style">
+              <NavLink to="/MyPatients">
+                <span className="noselect">My Patients</span>
+              </NavLink>
+            </li>
+
+            <li className="hover-style">
+              <p className="noselect" onClick={handleLogout}>
+                Logout
+              </p>
             </li>
           </React.Fragment>
         )}
         {!context.isLoggedIn && (
           <React.Fragment>
-            <li>
-              <NavLink to="/signin">Log in</NavLink>
+            <li className="hover-style">
+              <NavLink to="/signin">
+                <span>Log In</span>
+              </NavLink>
             </li>
-            <li>
-              <NavLink to="/signup">Create account</NavLink>
+
+            <li className="hover-style">
+              <NavLink to="/signup">
+                <span>Create Account</span>
+              </NavLink>
             </li>
           </React.Fragment>
         )}

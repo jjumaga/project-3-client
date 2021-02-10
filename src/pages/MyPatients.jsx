@@ -43,24 +43,47 @@ class MyPatients extends Component {
   render() {
     return (
       <div>
-        {this.state.patients.length === 0 && (
-          <h1>You do not have any patients</h1>
+        {this.state.patients.length === 0 ? (
+          <h1 className="table-header-my-patients">
+            You do not have any patients
+          </h1>
+        ) : (
+          <h1 className="table-header-my-patients"> My Patients</h1>
         )}
         {this.state.patients.map((patient) => {
           return (
-            <div className="patient-list-div">
-              <section className="my-patients-section" key={patient._id}>
-                <h3>{`${patient.firstName} ${patient.lastName}`}</h3>
-                <p>{dayjs(`${patient.birthDate}`).format("DD/MM/YYYY")}</p>
-                <button
-                  className="patient-profile-btn"
-                  onClick={() => {
-                    this.handlePatient(patient._id);
-                  }}
-                >
-                  Patient Profile
-                </button>
-              </section>
+            <div className="table-page-wrapper">
+              <div className="table">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Patient Name</th>
+                      <th>Date of Birth</th>
+                      <th>Social Security Number</th>
+                      <th>Add Patient</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr key={patient._id}>
+                      <td>{`${patient.firstName} ${patient.lastName}`}</td>
+                      <td>
+                        {dayjs(`${patient.birthDate}`).format("DD/MM/YYYY")}
+                      </td>
+                      <td>{patient.socialSecurityNumber}</td>
+                      <td>
+                        <button
+                          className="table-btns"
+                          onClick={() => {
+                            this.handlePatient(patient._id);
+                          }}
+                        >
+                          Patient Profile
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           );
         })}

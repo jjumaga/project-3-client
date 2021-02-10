@@ -5,16 +5,99 @@
   }
   
   body {
-    padding: 20px 15%;
+    padding: 20px 10%;
   }
 
-  div.form {
-    display: block;
+  .form {
     text-align: center;
+    padding-top: 200px
 }
-#signin-form {
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
+
+.account-form {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.form-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-message {
+  color:rgb(58, 107, 109);
+  padding-bottom: 40px;
+
+}
+
+.form-label {
+  padding-top: 15px;
+  text-align: left;
+  color:rgb(58, 107, 109);
+}
+
+.form-input {
+font-size: 16px;
+width: 22vw;
+color:rgb(58, 107, 109);
+}
+
+.submit-btn {
+  margin-top: 15px;
+  border: 1px solid rgb(58, 107, 109);
+  height: 5vh;
+  width: 22vw;
+  background-color: rgb(169, 214, 216);
+  color: rgb(58, 107, 109);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 0;
+  transition: 1s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.submit-btn::before, .submit-btn::after {
+  position: absolute;
+  background: rgb(169, 214, 216);
+  z-index: -1;
+  transition: 1s;
+  content: '';
+}
+
+.submit-btn::before {
+  height: 5vh;
+  width: 22vw;
+}
+
+.submit-btn::after {
+  height: 5vh;
+  width: 22vw;
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+.submit-btn:hover::before {
+  width: 0px;
+  background: rgb(169, 214, 216);
+}
+
+.submit-btn:hover::after {
+  height: 0px;
+  background: rgb(169, 214, 216);
+}
+
+.submit-btn:hover {
+  background: rgb(169, 214, 216);
 }

@@ -1,5 +1,15 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
+
+import { library } from "@fortawesome/fontawesome-svg-core";
+//import { faReact } from "@fortawesome/free-brands-svg-icons";
+import {
+  faEdit,
+  faTrash,
+  faFileUpload,
+  faCoffee,
+} from "@fortawesome/free-solid-svg-icons";
+
 import NavMain from "./components/NavMain";
 import Home from "./pages/Home";
 import Signin from "./pages/Signin";
@@ -10,6 +20,8 @@ import CreateDocument from "./pages/CreateDocument";
 import UpdateDocument from "./pages/UpdateDocument";
 import PatientList from "./pages/PatientList";
 import MyPatients from "./pages/MyPatients";
+
+library.add(faEdit, faTrash, faFileUpload, faCoffee);
 
 function App() {
   return (

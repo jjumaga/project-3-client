@@ -1,0 +1,86 @@
+.table-page-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+table { 
+    width: 80vw; 
+	border-collapse: collapse; 
+	color:rgb(58, 107, 109);
+    border-collapse: collapse;
+    margin-top: 80px;
+}
+
+/* Zebra striping */
+tr:nth-of-type(odd) { 
+    background: #eee; 
+}
+
+th { 
+    background:rgb(169, 214, 216);
+    color: rgb(58, 107, 109);
+    font-weight: bold;
+    padding: 6px; 
+    border: 1px solid rgb(58, 107, 109);
+    text-align: center; 
+}
+
+td { 
+    padding: 6px; 
+    border: 1px solid rgb(58, 107, 109);
+    text-align: left; 
+    width: 20vh;
+}
+
+.table-btns {
+    background-color:rgb(230,250,253);
+    border: 1px solid rgb(58, 107, 109);
+    padding: 0px 4px;
+    color: rgb(58, 107, 109);
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.table-btns:hover {
+    font-weight: bold;
+}
+
+.table-header {
+    padding-top: 100px;
+    color: rgb(58, 107, 109);
+}
+
+.table-header-my-patients {
+    padding-top: 100px;
+    color: rgb(58, 107, 109);
+}
+
+.doc-display-doc-notes {
+    width: 30%;
+}
+
+.doc-display-doc-edit, .doc-display-doc-delete, .doc-display-doc {
+    width: 7%;
+}
+
+.display-doc-btns {
+    background-color: transparent;
+    border: transparent;
+    padding: 0px 25px;
+    color: rgb(58, 107, 109);
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.doc-add-file-btn{
+    margin-top: 10px;
+    background-color:rgb(169,214,216);
+    border: 1px solid rgb(58, 107, 109);
+    padding: 0px 4px;
+    color: rgb(58, 107, 109);
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 18px;
+}

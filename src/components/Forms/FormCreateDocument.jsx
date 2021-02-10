@@ -48,88 +48,88 @@ class FormCreateDocument extends Component {
     //  return <Redirect to="/" />;
     //}
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div>
-          <label className="desc" id="title1" htmlFor="docType">
-            Document Type
-          </label>
-          <div>
-            <input
-              id="Field1"
+      <div className="form">
+        <h2 className="form-message">Add patient information</h2>
+
+        <form className="account-form" onSubmit={this.handleSubmit}>
+          <div className="form-info">
+            <label className="form-label" htmlFor="docType">
+              Document Type
+            </label>
+
+            <select
+              className="form-input"
               onChange={this.handleChange}
               value={this.state.docType}
-              type="text"
               name="docType"
-            />
-          </div>
-        </div>
+            >
+              <option value="Select">- Please Select an Option Below -</option>
+              <option value="Prescription">Prescription</option>
+              <option value="Test Results">Test Results</option>
+              <option value="X-ray/MRI/CT Scan">X-ray/MRI/CT Scan</option>
+              <option value="Daily Journal">Daily Journal</option>
+              <option value="Admistrative Reocrds">
+                Administrative Records
+              </option>
+              <option value="Patient Information">Patient Information</option>
+              <option value="Other">
+                Other - Give details in notes section
+              </option>
+            </select>
 
-        <div>
-          <label className="desc" id="title2" htmlFor="date">
-            Date
-          </label>
-          <div>
+            <label className="form-label" htmlFor="date">
+              Date
+            </label>
+
             <input
-              id="Field2"
+              className="form-input"
               onChange={this.handleChange}
               value={this.state.date}
               type="date"
               name="date"
             />
-          </div>
-        </div>
 
-        <div>
-          <label className="desc" id="title3" htmlFor="uploadedBy">
-            Uploaded By
-          </label>
-          <div>
+            <label className="form-label" htmlFor="uploadedBy">
+              Uploaded By
+            </label>
+
             <input
-              id="Field3"
+              className="form-input"
               onChange={this.handleChange}
               value={this.state.uploadedBy}
               type="text"
               name="uploadedBy"
             />
-          </div>
-        </div>
 
-        <div>
-          <label className="desc" id="title4" htmlFor="document">
-            Upload Document
-          </label>
-          <div>
+            <label className="form-label" htmlFor="document">
+              Upload Document
+            </label>
+
             <input
-              id="Field4"
+              className="form-input"
               onChange={this.handleChange}
-              // ref={this.imageRef}
+              // value={this.state.document}
+              ref={this.imageRef}
               type="file"
               name="document"
             />
-          </div>
-        </div>
 
-        <div>
-          <label className="desc" id="title5" htmlFor="notes">
-            Notes
-          </label>
-          <div>
+            <label className="form-label" htmlFor="notes">
+              Notes
+            </label>
+
             <textarea
-              id="Field5"
+              className="form-input"
               onChange={this.handleChange}
               value={this.state.notes}
               name="notes"
               spellCheck="true"
             ></textarea>
-          </div>
-        </div>
 
-        <div>
-          <div>
-            <button>Submit</button>
+            <button className="submit-btn">Submit</button>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     );
   }
 }

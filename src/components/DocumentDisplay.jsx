@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import apiHandler from "../api/apiHandler";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 const dayjs = require("dayjs");
 require("dayjs/locale/en");
 var advancedFormat = require("dayjs/plugin/advancedFormat");
@@ -18,9 +20,9 @@ export class DocumentDisplay extends Component {
   state = {
     selectedDocument: null,
     documents: [],
+    patients: [],
   };
 
-  //getpatientdocuments
   //launched automatically lors du premier page load AFTER the first render
   componentDidMount() {
     apiHandler // axios===promise
@@ -28,6 +30,15 @@ export class DocumentDisplay extends Component {
       .then((documents) => {
         console.log(documents);
         this.setState({ documents });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    apiHandler
+      .getPatientProfile(this.props.match.params.id)
+      .then((patients) => {
+        console.log(patients);
+        this.setState({ patients });
       })
       .catch((err) => {
         console.log(err);
@@ -50,53 +61,68 @@ export class DocumentDisplay extends Component {
   }
 
   render() {
+    console.log(this.state.patients);
     return (
-      <div>
-        <h2>Patient Documents</h2>
-        <table>
-          <thead id="this">
-            <tr>
-              <th>Document Type</th>
-              <th>Date</th>
-              <th>Uploaded By</th>
-              <th>Link</th>
-              <th>Notes</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.documents &&
-              this.state.documents.map((document) => {
-                return (
-                  <tr key={document._id}>
-                    <td>{document.docType}</td>
-                    <td>{dayjs(`${document.date}`).format("DD/MM/YYYY")}</td>
-                    <td>{document.uploadedBy}</td>
-                    <td>
-                      <a href={document.document}>{document.document}</a>
-                    </td>
-                    <td>{document.notes}</td>
-                    <td>
-                      <Link to={`/UpdateDocument/${document._id}`}>
-                        <button>Edit File</button>
-                      </Link>
-                    </td>
-                    <td>
-                      <button
-                        onClick={() => {
-                          this.handleDelete(document._id);
-                        }}
-                      >
-                        Delete File
-                      </button>
-                    </td>
-                  </tr>
-                );
-              })}
-          </tbody>
-        </table>
-        <Link to={`/CreateDocument/${this.props.match.params.id}`}>
-          <button>Add File</button>
-        </Link>
+      <div className="table-page-wrapper">
+        <div className="doc-display-table">
+          <h2 className="table-header">
+            {`Patient Profile: ${this.state.patients.firstName} ${this.state.patients.lastName}`}
+          </h2>
+          <table>
+            <thead>
+              <tr>
+                <th className="doc-display-date">Date</th>
+                <th className="doc-display-doc-type">Document Type</th>
+                <th className="doc-display-upload-by">Uploaded By</th>
+                <th className="doc-display-doc-notes">Notes</th>
+                <th className="doc-display-doc">File</th>
+                <th className="doc-display-doc-edit">Edit</th>
+                <th className="doc-display-doc-delete">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.documents &&
+                this.state.documents.map((document) => {
+                  return (
+                    <tr key={document._id}>
+                      <td>{dayjs(`${document.date}`).format("DD/MM/YYYY")}</td>
+                      <td>{document.docType}</td>
+                      <td>{document.uploadedBy}</td>
+                      <td>{document.notes}</td>
+                      <td>
+                        <a
+                          className="display-doc-btns"
+                          href={document.document}
+                        >
+                          <FontAwesomeIcon icon="file-upload" />
+                        </a>
+                      </td>
+                      <td>
+                        <Link to={`/UpdateDocument/${document._id}`}>
+                          <button className="display-doc-btns">
+                            <FontAwesomeIcon icon="edit" />
+                          </button>
+                        </Link>
+                      </td>
+                      <td>
+                        <button
+                          className="display-doc-btns"
+                          onClick={() => {
+                            this.handleDelete(document._id);
+                          }}
+                        >
+                          <FontAwesomeIcon icon="trash" />
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
+            </tbody>
+          </table>
+          <Link to={`/CreateDocument/${this.props.match.params.id}`}>
+            <button className="doc-add-file-btn">Add File</button>
+          </Link>
+        </div>
       </div>
     );
   }

@@ -2,6 +2,9 @@ import React, { Component } from "react";
 //import { Link } from "react-router-dom";
 import apiHandler from "../api/apiHandler";
 import { withUser } from "./Auth/withUser";
+
+import "../styles/table.css";
+
 const dayjs = require("dayjs");
 require("dayjs/locale/en");
 var advancedFormat = require("dayjs/plugin/advancedFormat");
@@ -48,8 +51,11 @@ class PatientDisplay extends Component {
       return <div>Already added to your patients</div>;
     else {
       return (
-        <button onClick={() => this.handleClick(patientId)}>
-          Add to my Patient List
+        <button
+          className="table-btns"
+          onClick={() => this.handleClick(patientId)}
+        >
+          Add to My Patients
         </button>
       );
     }
@@ -72,32 +78,35 @@ class PatientDisplay extends Component {
 
   render() {
     return (
-      <div>
-        <h2>Patients</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Patient Name</th>
-              <th>Date of Birth</th>
-              <th>Social Security Number</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.props.patients[0] &&
-              this.props.patients.map((patient) => {
-                return (
-                  <tr key={patient._id}>
-                    <td>{`${patient.firstName} ${patient.lastName}`}</td>
-                    <td>
-                      {dayjs(`${patient.birthDate}`).format("DD/MM/YYYY")}
-                    </td>
-                    <td>{patient.socialSecurityNumber}</td>
-                    <td>{this.displayAddButton(patient._id)}</td>
-                  </tr>
-                );
-              })}
-          </tbody>
-        </table>
+      <div className="table-page-wrapper">
+        <div className="table">
+          <h1 className="table-header">Patients</h1>
+          <table>
+            <thead>
+              <tr>
+                <th>Patient Name</th>
+                <th>Date of Birth</th>
+                <th>Social Security Number</th>
+                <th>Add Patient</th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.props.patients[0] &&
+                this.props.patients.map((patient) => {
+                  return (
+                    <tr key={patient._id}>
+                      <td>{`${patient.firstName} ${patient.lastName}`}</td>
+                      <td>
+                        {dayjs(`${patient.birthDate}`).format("DD/MM/YYYY")}
+                      </td>
+                      <td>{patient.socialSecurityNumber}</td>
+                      <td>{this.displayAddButton(patient._id)}</td>
+                    </tr>
+                  );
+                })}
+            </tbody>
+          </table>
+        </div>
       </div>
     );
   }

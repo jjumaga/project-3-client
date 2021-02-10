@@ -1,29 +1,28 @@
 
 .patient-profile-btn {
     text-decoration: transparent;
-    background-color: white;
-    border: 0;
+    background-color: rgb(230,250,253);
+    border: 1px solid rgb(58, 107, 109);
   padding: 1.5rem 2rem;
   font-size: 1rem;
-  box-shadow: 0px 5px 10px rgba(darken(dodgerblue, 40%));
-  transition: all .5s;
   cursor: pointer;
   border-radius: 5px;
   border-bottom: 4px solid lighten(gray, 70%);
 }
 
 .patient-profile-btn:hover {
-    box-shadow: 0px 15px 25px -5px rgba(darken(dodgerblue, 40%));
+    box-shadow: rgb(58, 107, 109);
     transform: scale(1.03);
 }
 
 .patient-profile-btn:active {
     
-    box-shadow: 0px 4px 8px rgba(darken(dodgerblue, 30%));
+    box-shadow: rgb(58, 107, 109);
     transform: scale(.98);
 }
 
 .patient-list-div {
+    padding: 150px 0px 0px 0px;
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -33,7 +32,8 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    background-color: rgb(91, 176, 255);
+    color: rgb(58, 107, 109);
+    background-color: rgb(169, 214, 216);
     margin: 10px;
     width: 20vw;
     align-items: center;

@@ -1,33 +1,84 @@
-#home-header {
+.home-page {
+    padding: 70px 0px 0px 0px;
+    box-sizing: border-box;
     display: flex;
-    align-items: center;
+    justify-content: center;
     flex-direction: column;
-    justify-content: space-around;
 }
 
-#header-title {
+.header-title {
     font-size: 60px;
-    color:rgb(46, 96, 170)
+    color:rgb(58, 107, 109);
 }
 
-#header-desc {
+.header-desc {
+    background-image: url("../banner.jpg");
+    background-repeat: no-repeat;
+    height: 50vh;
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 25px;
-    color:rgb(46, 96, 170)
+    color:rgb(58, 107, 109);
+    text-align: center;
+    padding: 20px 0px 50px 0px;
 }
 
-#home-body {
+.home-body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 10px;
+    padding: 40px 10px 100px 10px;
 }
 
-.home-section {
+.home-intro {
     padding: 40px;
     margin: 10px;
-    background-color: rgb(91, 176, 255);
-    height: 40vh;
+    background-color: rgb(169, 214, 216);
+    color:rgb(58, 107, 109);
+    height: 250px;
     width: 40vw;
+}
+
+@media screen and (max-width: 1200px) {
+    .home-intro {
+        padding: 10px;
+    }
+    .header-desc {
+        font-size: 20px;
+        height: 45vh;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .home-body {
+    display: flex;
+    flex-direction: column;
+    }
+    .header-desc {
+        height: 40vh;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .home-intro {
+    height: 30vh;
+    width: 50vw;
+    }
+    .home-page {
+        padding-top: 90px;
+    }
+    .header-desc {
+        height: 35vh;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .home-intro {
+        height: 30vh;
+        width: 70vw;
+        }
 }
 
 .section-title {
@@ -38,6 +89,7 @@
     text-align:left;
 }
 
-#home-footer {
+.home-footer {
     text-align: center;
+    font-size: 0.7rem;
 }

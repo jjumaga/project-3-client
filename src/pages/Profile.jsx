@@ -9,11 +9,15 @@ export class Profile extends Component {
   static contextType = UserContext;
   state = {
     documents: [],
+    patients: [],
   };
 
   componentDidMount() {
     apiHandler.getDocuments().then((data) => {
       this.setState({ documents: data });
+    });
+    apiHandler.getPatients().then((data) => {
+      this.setState({ patients: data });
     });
   }
 
@@ -29,8 +33,10 @@ export class Profile extends Component {
   };
 
   render() {
+    //console.log(this.state.patients);
     return (
       <DocumentDisplay
+        patients={this.state.patients}
         documents={this.state.documents}
         handleClose={this.handleClose}
         onDocumentUpdate={this.handleDocumentUpdate}

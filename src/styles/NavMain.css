@@ -1,14 +1,139 @@
-.NavMain {
-  color: rgb(57, 57, 57);
+.nav-bar {
   display: flex;
-  font-size: 60px;
+  justify-content: space-between;
+  position: fixed;
+  width: 80vw;
+  height: 9vh;
+  background: rgb(230,250,253);
+  background: linear-gradient(90deg, rgba(230,250,253,1) 35%, rgba(251,236,210,1) 100%);
+  align-items: center;
+  border: transparent;
 }
 
-.NavMain .nav-list {
-  margin-left: auto;
+.logo {
   display: flex;
+  color:rgb(70, 135, 136);
+  font-size: 40px;
 }
 
-.NavMain .nav-list li:not(:last-child) {
-  margin-right: 20px;
+.nav-ul {
+
+  display: flex;
+  font-size: 20px;
+  color:rgb(70, 135, 136);
+}
+
+@media screen and (max-width: 1200px) {
+  .nav-ul {
+    font-size: 18px;
+  }
+  .logo {
+    font-size: 35px;
+  }
+  .nav-ul li {
+    padding: 0px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .nav-ul {
+    font-size: 15px;
+  }
+  .logo {
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .nav-bar{
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    height: 13vh;
+  }
+  .nav-ul {
+    font-size: 14px;
+  }
+  .logo {
+    font-size: 20px;
+  }
+  .hover-style, .welcome-msg {
+    margin: 10px 10px 0px 10px;
+  }
+}
+
+@media screen and (max-width: 700px) and (max-height: 600) {
+  .nav-bar {
+    height: 19vh;
+  }
+}
+
+@media screen and (max-width: 700px) and (max-height: 450px) {
+  .nav-bar {
+    height: 19vh;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .nav-bar {
+    height: 12vh;
+  }
+}
+
+@media screen and (max-height: 450px) {
+  .nav-bar {
+    height: 15vh;
+  }
+}
+
+@media screen and (max-height: 350px) {
+  .nav-bar {
+    height: 18vh;
+  }
+}
+
+.welcome-msg{
+  height: 5vh;
+  width: 11vw;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0px 35px 10px 0px;
+  display: inline-block;
+  text-decoration: none;
+  color:rgb(70, 135, 136);
+}
+
+.hover-style {
+  height: 5vh;
+  width: 14vw;
+  color: rgb(70, 135, 136);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 10px;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.hover-style::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: rgb(70, 135, 136);
+  transition: width .3s;
+}
+
+.hover-style:hover::after {
+  width: 100%;
+}
+
+.bottom-border {
+  margin-bottom: 10px;
+  display: inline-block;
+  text-decoration: none;
+  color:rgb(70, 135, 136);
+  font-size: 40px;
 }

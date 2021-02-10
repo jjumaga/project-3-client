@@ -1,48 +1,49 @@
 import React from "react";
 import "../styles/home.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Home extends React.Component {
   render() {
     return (
-      <div class="home-page">
+      <body className="home-page">
         <header>
-          <h1 id="header-title">Health Hub</h1>
-          <p id="header-desc">
+          <p className="header-desc">
             Allowing healthcare professionals to communicate patient information
             <br />
             seamlessly through an easy-to-use and industry tested platform.
           </p>
         </header>
-        <body id="home-body">
-          <section id="section-1" className="home-section">
+        <hr />
+        <div className="home-body">
+          <section className="home-intro">
             <h2 className="section-title">Save Time</h2>
             <p className="section-desc">
               Health Hub brings all health care organisations to one place
-              through its easy-to-use and platform, so you can focus on what's
-              most important.
+              through its easy-to-use platform, so you can focus on what's most
+              important.
             </p>
           </section>
-          <section id="section-2" className="home-section">
+          <section className="home-intro">
             <h2 className="section-title">Don't Miss a Thing</h2>
             <p className="section-desc">
-              You are receiving a new patient in hospice that has come from home
-              care? Every part of your patients' history is linked to their
-              profile, from prescriptions to daily journals.
+              A new patient is transfering to hospice from home care? Every part
+              of your patients' history is linked to their profile, from
+              prescriptions to daily journals.
             </p>
           </section>
-          <section id="section-3" class="home-section">
+          <section className="home-intro">
             <h2 className="section-title">Peace of Mind</h2>
             <p className="section-desc">
               Your patients and their family can relax knowing that you have all
               the information you need to give the best care possible.
             </p>
           </section>
-        </body>
-        <footer id="home-footer">
-          An Ironhack project made with react, blood, sweat and tears by
-          Jacqueline Jumaga
+        </div>
+        <footer className="home-footer">
+          An Ironhack SPA project made with react, express, and{" "}
+          <FontAwesomeIcon icon="coffee" /> by Jacqueline Jumaga
         </footer>
-      </div>
+      </body>
     );
   }
 }

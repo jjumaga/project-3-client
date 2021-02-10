@@ -41,16 +41,36 @@ class FormSignin extends Component {
 
     return (
       <div className="form">
+        <h2 className="form-message">Sign in</h2>
+
         <form
-          id="signin-form"
+          className="account-form"
           onChange={this.handleChange}
           onSubmit={this.handleSubmit}
         >
-          <label htmlFor="email">Email</label>
-          <input type="email" id="email" name="email" />
-          <label htmlFor="password">Password</label>
-          <input type="password" id="password" name="password" />
-          <button>Submit</button>
+          <div className="form-info">
+            <label className="form-label" htmlFor="email">
+              Email
+            </label>
+            <input
+              className="form-input"
+              type="email"
+              name="email"
+              placeholder="Enter your email address"
+            />
+            <label className="form-label" htmlFor="password">
+              Password
+            </label>
+            <input
+              className="form-input"
+              type="password"
+              name="password"
+              placeholder="Enter your password"
+            />
+            <button className="submit-btn">
+              <span className="noselect">Submit</span>
+            </button>
+          </div>
         </form>
       </div>
     );

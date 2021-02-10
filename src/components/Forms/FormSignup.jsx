@@ -41,49 +41,72 @@ class FormSignup extends Component {
     }
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label htmlFor="firstName">First Name</label>
-        <input
-          onChange={this.handleChange}
-          value={this.state.firstName}
-          type="text"
-          id="firstName"
-          name="firstName"
-        />
-        <label htmlFor="lastName">Last Name</label>
-        <input
-          onChange={this.handleChange}
-          value={this.state.lastName}
-          type="text"
-          id="lastName"
-          name="lastName"
-        />
-        <label htmlFor="jobTitle">Job Title</label>
-        <input
-          onChange={this.handleChange}
-          value={this.state.jobTitle}
-          type="text"
-          id="jobTitle"
-          name="jobTitle"
-        />
-        <label htmlFor="email">Email</label>
-        <input
-          onChange={this.handleChange}
-          value={this.state.email}
-          type="email"
-          id="email"
-          name="email"
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          onChange={this.handleChange}
-          value={this.state.password}
-          type="password"
-          id="password"
-          name="password"
-        />
-        <button>Submit</button>
-      </form>
+      <div className="form">
+        <h2 className="form-message">Create your account</h2>
+
+        <form className="account-form" onSubmit={this.handleSubmit}>
+          <div className="form-info">
+            <label className="form-label" htmlFor="firstName">
+              First Name
+            </label>
+            <input
+              className="form-input"
+              onChange={this.handleChange}
+              value={this.state.firstName}
+              type="text"
+              name="firstName"
+              placeholder="Enter your first name"
+            />
+            <label className="form-label" htmlFor="lastName">
+              Last Name
+            </label>
+            <input
+              className="form-input"
+              onChange={this.handleChange}
+              value={this.state.lastName}
+              type="text"
+              name="lastName"
+              placeholder="Enter your last name"
+            />
+            <label className="form-label" htmlFor="jobTitle">
+              Job Title
+            </label>
+            <input
+              className="form-input"
+              onChange={this.handleChange}
+              value={this.state.jobTitle}
+              type="text"
+              name="jobTitle"
+              placeholder="Enter your job title"
+            />
+            <label className="form-label" htmlFor="email">
+              Email
+            </label>
+            <input
+              className="form-input"
+              onChange={this.handleChange}
+              value={this.state.email}
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+            />
+            <label className="form-label" htmlFor="password">
+              Password
+            </label>
+            <input
+              className="form-input"
+              onChange={this.handleChange}
+              value={this.state.password}
+              type="password"
+              name="password"
+              placeholder="Enter your password"
+            />
+            <button className="submit-btn">
+              <span className="noselect">Submit</span>
+            </button>
+          </div>
+        </form>
+      </div>
     );
   }
 }

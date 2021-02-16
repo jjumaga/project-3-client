@@ -51,14 +51,14 @@ color:rgb(58, 107, 109);
   background-color: rgb(169, 214, 216);
   color: rgb(58, 107, 109);
   cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   z-index: 0;
   transition: 1s;
-  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+  outline: none;
 }
 
 .submit-btn::before, .submit-btn::after {
@@ -80,12 +80,7 @@ color:rgb(58, 107, 109);
 }
 
 .noselect {
-  -webkit-touch-callout: none;
-    -webkit-user-select: none;
-     -khtml-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
+  text-decoration: none;
 }
 
 .submit-btn:hover::before {

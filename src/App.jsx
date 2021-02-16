@@ -8,6 +8,8 @@ import {
   faTrash,
   faFileUpload,
   faCoffee,
+  faArrowCircleRight,
+  faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 
 import NavMain from "./components/NavMain";
@@ -21,7 +23,14 @@ import UpdateDocument from "./pages/UpdateDocument";
 import PatientList from "./pages/PatientList";
 import MyPatients from "./pages/MyPatients";
 
-library.add(faEdit, faTrash, faFileUpload, faCoffee);
+library.add(
+  faEdit,
+  faTrash,
+  faFileUpload,
+  faCoffee,
+  faArrowCircleRight,
+  faPlus
+);
 
 function App() {
   return (

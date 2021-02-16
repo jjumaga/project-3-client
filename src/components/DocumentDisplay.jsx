@@ -23,12 +23,13 @@ export class DocumentDisplay extends Component {
     patients: [],
   };
 
+  formRef = React.createRef();
+
   //launched automatically lors du premier page load AFTER the first render
   componentDidMount() {
     apiHandler // axios===promise
       .getPatientDocuments(this.props.match.params.id)
       .then((documents) => {
-        console.log(documents);
         this.setState({ documents });
       })
       .catch((err) => {
@@ -37,7 +38,6 @@ export class DocumentDisplay extends Component {
     apiHandler
       .getPatientProfile(this.props.match.params.id)
       .then((patients) => {
-        console.log(patients);
         this.setState({ patients });
       })
       .catch((err) => {
@@ -61,14 +61,14 @@ export class DocumentDisplay extends Component {
   }
 
   render() {
-    console.log(this.state.patients);
+    console.log(this.props.documents);
     return (
       <div className="table-page-wrapper">
         <div className="doc-display-table">
           <h2 className="table-header">
             {`Patient Profile: ${this.state.patients.firstName} ${this.state.patients.lastName}`}
           </h2>
-          <table>
+          <table ref={this.formRef}>
             <thead>
               <tr>
                 <th className="doc-display-date">Date</th>

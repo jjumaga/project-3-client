@@ -1,12 +1,13 @@
 import React, { Component } from "react";
+import UserContext from "../Auth/UserContext";
 import apiHandler from "../../api/apiHandler";
+import { buildFormData } from "../../tools.js";
 import { withUser } from "../Auth/withUser";
 import { withRouter } from "react-router-dom";
-import { buildFormData } from "../../tools.js";
 import "../../styles/form.css";
 
 class FormCreateDocument extends Component {
-  //static contextType = UserContext;
+  static contextType = UserContext;
 
   state = {
     docType: "",
@@ -16,7 +17,7 @@ class FormCreateDocument extends Component {
     notes: "",
   };
 
-  imageRef = React.createRef();
+  formRef = React.createRef();
 
   handleChange = (event) => {
     const key = event.target.name;
@@ -41,6 +42,10 @@ class FormCreateDocument extends Component {
       .catch((err) => {
         console.log(err);
       });
+  };
+
+  handleFileSelect = ({ tmpUrl, file }) => {
+    this.setState({ image: file });
   };
 
   render() {
@@ -108,8 +113,8 @@ class FormCreateDocument extends Component {
             <input
               className="form-input"
               onChange={this.handleChange}
-              // value={this.state.document}
-              ref={this.imageRef}
+              defaultValue={this.state.document.document}
+              ref={this.formRef}
               type="file"
               name="document"
             />

@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import UserContext from "../Auth/UserContext";
 import apiHandler from "../../api/apiHandler";
 import { buildFormData } from "../../tools.js";
-//import UploadWidget from "../UploadWidget";
-//import Button from "../Button";
 import { withRouter } from "react-router";
 import "../../styles/form.css";
 
@@ -90,13 +88,27 @@ class FormUpdateDocument extends Component {
               <label className="form-label" htmlFor="docType">
                 Document Type
               </label>
-              <input
+              <select
                 className="form-input"
                 onChange={this.handleChange}
-                type="text"
+                value={this.state.docType}
                 name="docType"
-                defaultValue={this.state.documents.docType}
-              />
+              >
+                <option value="Select">
+                  - Please Select an Option Below -
+                </option>
+                <option value="Prescription">Prescription</option>
+                <option value="Test Results">Test Results</option>
+                <option value="X-ray/MRI/CT Scan">X-ray/MRI/CT Scan</option>
+                <option value="Daily Journal">Daily Journal</option>
+                <option value="Admistrative Reocrds">
+                  Administrative Records
+                </option>
+                <option value="Patient Information">Patient Information</option>
+                <option value="Other">
+                  Other - Give details in notes section
+                </option>
+              </select>
 
               <label className="form-label" htmlFor="date">
                 Date

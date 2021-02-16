@@ -35,16 +35,21 @@ td {
 }
 
 .table-btns {
-    background-color:rgb(230,250,253);
-    border: 1px solid rgb(58, 107, 109);
+    background-color:transparent;
+    border: transparent;
     padding: 0px 4px;
     color: rgb(58, 107, 109);
-    cursor: pointer;
     border-radius: 3px;
-}
-
-.table-btns:hover {
-    font-weight: bold;
+    height: 5vh;
+    width: 8vw;
+    cursor: pointer;
+    align-items: center;
+    justify-content:space-between;
+    position: relative;
+    margin-bottom: 5px;
+    display: inline-block;
+    text-decoration: none;
+    outline: none;
 }
 
 .table-header {
@@ -72,6 +77,8 @@ td {
     color: rgb(58, 107, 109);
     cursor: pointer;
     border-radius: 3px;
+    text-decoration: none;
+    outline: none;
 }
 
 .doc-add-file-btn{
@@ -83,4 +90,12 @@ td {
     cursor: pointer;
     border-radius: 3px;
     font-size: 18px;
+    text-decoration: none;
+}
+
+.my-patients-header-profile {
+    width: 10%;
+    background:rgb(169, 214, 216);
+    color: rgb(58, 107, 109);
+    font-weight: bold;
 }

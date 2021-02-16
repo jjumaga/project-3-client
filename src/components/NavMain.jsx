@@ -58,13 +58,13 @@ const NavMain = (props) => {
           <React.Fragment>
             <li className="hover-style">
               <NavLink to="/signin">
-                <span>Log In</span>
+                <span className="noselect">Log In</span>
               </NavLink>
             </li>
 
             <li className="hover-style">
               <NavLink to="/signup">
-                <span>Create Account</span>
+                <span className="noselect">Create Account</span>
               </NavLink>
             </li>
           </React.Fragment>

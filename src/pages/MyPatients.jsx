@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import apiHandler from "../api/apiHandler";
 //import { withUser } from "../components/Auth/withUser"; //import my current user info as props
 import { withRouter } from "react-router-dom";
-import "../styles/myPatients.css";
+import "../styles/table.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 const dayjs = require("dayjs");
 require("dayjs/locale/en");
 var advancedFormat = require("dayjs/plugin/advancedFormat");
@@ -50,20 +52,22 @@ class MyPatients extends Component {
         ) : (
           <h1 className="table-header-my-patients"> My Patients</h1>
         )}
-        {this.state.patients.map((patient) => {
-          return (
-            <div className="table-page-wrapper">
-              <div className="table">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Patient Name</th>
-                      <th>Date of Birth</th>
-                      <th>Social Security Number</th>
-                      <th>Add Patient</th>
-                    </tr>
-                  </thead>
-                  <tbody>
+        <div className="table-page-wrapper">
+          <div className="table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Patient Name</th>
+                  <th>Date of Birth</th>
+                  <th>Social Security Number</th>
+                  <th className="my-patients-header-profile">
+                    Patient Profile
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.state.patients.map((patient) => {
+                  return (
                     <tr key={patient._id}>
                       <td>{`${patient.firstName} ${patient.lastName}`}</td>
                       <td>
@@ -77,16 +81,16 @@ class MyPatients extends Component {
                             this.handlePatient(patient._id);
                           }}
                         >
-                          Patient Profile
+                          <FontAwesomeIcon icon="arrow-circle-right" />
                         </button>
                       </td>
                     </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          );
-        })}
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     );
   }

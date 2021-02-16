@@ -2,6 +2,7 @@ import React, { Component } from "react";
 //import { Link } from "react-router-dom";
 import apiHandler from "../api/apiHandler";
 import { withUser } from "./Auth/withUser";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "../styles/table.css";
 
@@ -48,14 +49,14 @@ class PatientDisplay extends Component {
 
   displayAddButton(patientId) {
     if (this.props.context.user.patients.includes(patientId))
-      return <div>Already added to your patients</div>;
+      return <div>Already added</div>;
     else {
       return (
         <button
           className="table-btns"
           onClick={() => this.handleClick(patientId)}
         >
-          Add to My Patients
+          <FontAwesomeIcon icon="plus" />
         </button>
       );
     }
@@ -87,7 +88,7 @@ class PatientDisplay extends Component {
                 <th>Patient Name</th>
                 <th>Date of Birth</th>
                 <th>Social Security Number</th>
-                <th>Add Patient</th>
+                <th className="my-patients-header-profile">Add Patient</th>
               </tr>
             </thead>
             <tbody>

@@ -41,7 +41,7 @@ td {
     color: rgb(58, 107, 109);
     border-radius: 3px;
     height: 5vh;
-    width: 8vw;
+    width: 10vw;
     cursor: pointer;
     align-items: center;
     justify-content:space-between;
@@ -93,9 +93,21 @@ td {
     text-decoration: none;
 }
 
-.my-patients-header-profile {
+.patients-header-profile {
     width: 10%;
     background:rgb(169, 214, 216);
     color: rgb(58, 107, 109);
     font-weight: bold;
+}
+
+.patients-header-birthdate {
+    width: 25%;
+}
+
+.patients-header-name {
+    width: 30%;
+}
+
+.already-added-msg {
+    text-align: center;
 }

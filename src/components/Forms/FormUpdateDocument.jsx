@@ -91,7 +91,7 @@ class FormUpdateDocument extends Component {
               <select
                 className="form-input"
                 onChange={this.handleChange}
-                value={this.state.docType}
+                defaultValue={this.state.docType}
                 name="docType"
               >
                 <option value="Select">

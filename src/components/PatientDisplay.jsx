@@ -49,7 +49,7 @@ class PatientDisplay extends Component {
 
   displayAddButton(patientId) {
     if (this.props.context.user.patients.includes(patientId))
-      return <div>Already added</div>;
+      return <div className="already-added-msg">Already added</div>;
     else {
       return (
         <button
@@ -86,9 +86,9 @@ class PatientDisplay extends Component {
             <thead>
               <tr>
                 <th>Patient Name</th>
-                <th>Date of Birth</th>
+                <th>Date of Birth (DD/MM/YYY)</th>
                 <th>Social Security Number</th>
-                <th className="my-patients-header-profile">Add Patient</th>
+                <th className="patients-header-profile">Add Patient</th>
               </tr>
             </thead>
             <tbody>

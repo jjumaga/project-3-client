@@ -31,10 +31,6 @@ const NavMain = (props) => {
       <ul className="nav-ul">
         {context.isLoggedIn && (
           <React.Fragment>
-            <li className="welcome-msg">
-              Welcome, {context.user && context.user.email}
-            </li>
-
             <li className="hover-style">
               <NavLink to="/PatientList">
                 <span className="noselect">Find a Patient</span>

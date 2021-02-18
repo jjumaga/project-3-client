@@ -57,12 +57,14 @@ class MyPatients extends Component {
             <table>
               <thead>
                 <tr>
-                  <th>Patient Name</th>
-                  <th>Date of Birth</th>
-                  <th>Social Security Number</th>
-                  <th className="my-patients-header-profile">
-                    Patient Profile
+                  <th className="patients-header-name">Patient Name</th>
+                  <th className="patients-header-birthdate">
+                    Date of Birth (DD/MM/YYY)
                   </th>
+                  <th className="patients-header-ssnum">
+                    Social Security Number
+                  </th>
+                  <th className="patients-header-profile">Patient Profile</th>
                 </tr>
               </thead>
               <tbody>

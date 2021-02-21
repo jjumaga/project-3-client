@@ -6,18 +6,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "../styles/table.css";
 
-const dayjs = require("dayjs");
-require("dayjs/locale/en");
-var advancedFormat = require("dayjs/plugin/advancedFormat");
-var LocalizedFormat = require("dayjs/plugin/localizedFormat");
-var utc = require("dayjs/plugin/utc");
-var timezone = require("dayjs/plugin/timezone");
-dayjs.extend(utc);
-dayjs.extend(timezone);
-dayjs.extend(advancedFormat);
-dayjs.extend(LocalizedFormat);
-var relativeTime = require("dayjs/plugin/relativeTime");
-dayjs.extend(relativeTime);
+//const dayjs = require("dayjs");
+//require("dayjs/locale/en");
+//var advancedFormat = require("dayjs/plugin/advancedFormat");
+//var LocalizedFormat = require("dayjs/plugin/localizedFormat");
+//var utc = require("dayjs/plugin/utc");
+//var timezone = require("dayjs/plugin/timezone");
+//dayjs.extend(utc);
+//dayjs.extend(timezone);
+//dayjs.extend(advancedFormat);
+//dayjs.extend(LocalizedFormat);
+//var relativeTime = require("dayjs/plugin/relativeTime");
+//dayjs.extend(relativeTime);
 
 class PatientDisplay extends Component {
   state = {
@@ -97,9 +97,7 @@ class PatientDisplay extends Component {
                   return (
                     <tr key={patient._id}>
                       <td>{`${patient.firstName} ${patient.lastName}`}</td>
-                      <td>
-                        {dayjs(`${patient.birthDate}`).format("DD/MM/YYYY")}
-                      </td>
+                      <td>{patient.birthDate}</td>
                       <td>{patient.socialSecurityNumber}</td>
                       <td>{this.displayAddButton(patient._id)}</td>
                     </tr>

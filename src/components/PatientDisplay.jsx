@@ -28,7 +28,7 @@ class PatientDisplay extends Component {
   //launched automatically lors du premier page load AFTER the first render
   componentDidMount() {
     apiHandler // axios===promise
-      .getPatients(patient)
+      .getPatients(this.props.patients)
       .then((patients) => this.setState({ patients })) //because my state is documents, I need to tell it to equal document (what I recuper from my DB)
       .catch((err) => {
         console.log(err);

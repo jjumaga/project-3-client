@@ -61,7 +61,6 @@ export class DocumentDisplay extends Component {
   }
 
   render() {
-    console.log(this.props.documents);
     return (
       <div className="table-page-wrapper">
         <div className="doc-display-table">

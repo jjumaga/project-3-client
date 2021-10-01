@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { UserContext } from "../Auth/UserContext";
 import { withRouter, Redirect } from "react-router-dom";
+import { UserContext } from "../Auth/UserContext";
 import apiHandler from "../../api/apiHandler";
 import "../../styles/form.css";
 
@@ -26,7 +26,7 @@ class FormSignin extends Component {
       .signin(this.state)
       .then((data) => {
         this.context.setUser(data);
-        this.props.history.push("/");
+        //this.props.history.push("/");
       })
       .catch((error) => {
         console.log(error);

@@ -16,8 +16,8 @@ class FormSignup extends Component {
   };
 
   handleChange = (event) => {
-    const value = event.target.value;
     const key = event.target.name;
+    const value = event.target.value;
 
     this.setState({ [key]: value });
   };

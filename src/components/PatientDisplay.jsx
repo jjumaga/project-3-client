@@ -1,23 +1,9 @@
 import React, { Component } from "react";
-//import { Link } from "react-router-dom";
 import apiHandler from "../api/apiHandler";
 import { withUser } from "./Auth/withUser";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "../styles/table.css";
-
-//const dayjs = require("dayjs");
-//require("dayjs/locale/en");
-//var advancedFormat = require("dayjs/plugin/advancedFormat");
-//var LocalizedFormat = require("dayjs/plugin/localizedFormat");
-//var utc = require("dayjs/plugin/utc");
-//var timezone = require("dayjs/plugin/timezone");
-//dayjs.extend(utc);
-//dayjs.extend(timezone);
-//dayjs.extend(advancedFormat);
-//dayjs.extend(LocalizedFormat);
-//var relativeTime = require("dayjs/plugin/relativeTime");
-//dayjs.extend(relativeTime);
 
 class PatientDisplay extends Component {
   state = {

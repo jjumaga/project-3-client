@@ -49,23 +49,17 @@ class FormSignin extends Component {
           onSubmit={this.handleSubmit}
         >
           <div className="form-info">
-            <label className="form-label" htmlFor="email">
-              Email
-            </label>
             <input
               className="form-input"
               type="email"
               name="email"
-              placeholder="Enter your email address"
+              placeholder="Email"
             />
-            <label className="form-label" htmlFor="password">
-              Password
-            </label>
             <input
               className="form-input"
               type="password"
               name="password"
-              placeholder="Enter your password"
+              placeholder="Password"
             />
             <button className="submit-btn">
               <span className="noselect">Submit</span>

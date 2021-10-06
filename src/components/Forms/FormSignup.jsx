@@ -46,60 +46,45 @@ class FormSignup extends Component {
 
         <form className="account-form" onSubmit={this.handleSubmit}>
           <div className="form-info">
-            <label className="form-label" htmlFor="firstName">
-              First Name
-            </label>
             <input
               className="form-input"
               onChange={this.handleChange}
               value={this.state.firstName}
               type="text"
               name="firstName"
-              placeholder="Enter your first name"
+              placeholder="First name"
             />
-            <label className="form-label" htmlFor="lastName">
-              Last Name
-            </label>
             <input
               className="form-input"
               onChange={this.handleChange}
               value={this.state.lastName}
               type="text"
               name="lastName"
-              placeholder="Enter your last name"
+              placeholder="Last name"
             />
-            <label className="form-label" htmlFor="jobTitle">
-              Job Title
-            </label>
             <input
               className="form-input"
               onChange={this.handleChange}
               value={this.state.jobTitle}
               type="text"
               name="jobTitle"
-              placeholder="Enter your job title"
+              placeholder="Profession"
             />
-            <label className="form-label" htmlFor="email">
-              Email
-            </label>
             <input
               className="form-input"
               onChange={this.handleChange}
               value={this.state.email}
               type="email"
               name="email"
-              placeholder="Enter your email"
+              placeholder="Email"
             />
-            <label className="form-label" htmlFor="password">
-              Password
-            </label>
             <input
               className="form-input"
               onChange={this.handleChange}
               value={this.state.password}
               type="password"
               name="password"
-              placeholder="Enter your password"
+              placeholder="Password"
             />
             <button className="submit-btn">
               <span className="noselect">Submit</span>

@@ -26,30 +26,46 @@
 }
 
 .form-message {
-  color:rgb(58, 107, 109);
+  color:#372306;
   padding-bottom: 40px;
 
 }
 
-.form-label {
-  padding-top: 15px;
-  text-align: left;
-  color:rgb(58, 107, 109);
+input[type=text] {
+  background-color: #F4C0A4;
+  border: none;
+  padding: 2px;
+  color:#372306;
+}
+
+input[type=email] {
+  background-color: #F4C0A4;
+  border: none;
+  padding: 2px;
+  color:#372306;
+}
+
+input[type=password] {
+  background-color: #F4C0A4;
+  border: none;
+  padding: 2px;
+  color:#372306;
 }
 
 .form-input {
+margin-top: 15px;
 font-size: 16px;
 width: 22vw;
-color:rgb(58, 107, 109);
+color:#372306;
 }
 
 .submit-btn {
   margin-top: 15px;
-  border: 1px solid rgb(58, 107, 109);
+  border: 1px solid #372306;
   height: 5vh;
   width: 22vw;
-  background-color: rgb(169, 214, 216);
-  color: rgb(58, 107, 109);
+  background-color: #C67C58;
+  color: #372306;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -63,7 +79,7 @@ color:rgb(58, 107, 109);
 
 .submit-btn::before, .submit-btn::after {
   position: absolute;
-  background: rgb(169, 214, 216);
+  background: #F4C0A4;
   z-index: -1;
   transition: 1s;
   content: '';
@@ -85,14 +101,14 @@ color:rgb(58, 107, 109);
 
 .submit-btn:hover::before {
   width: 0px;
-  background: rgb(169, 214, 216);
+  background: #C67C58;
 }
 
 .submit-btn:hover::after {
   height: 0px;
-  background: rgb(169, 214, 216);
+  background: #F4C0A4;
 }
 
 .submit-btn:hover {
-  background: rgb(169, 214, 216);
+  background: #F4C0A4;
 }

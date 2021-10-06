@@ -8,28 +8,31 @@
 table { 
     width: 80vw; 
 	border-collapse: collapse; 
-	color:rgb(58, 107, 109);
+	color:#251804;
     border-collapse: collapse;
     margin-top: 80px;
 }
 
+thead {
+    background-color: #C67C58;
+}
+
 /* Zebra striping */
 tr:nth-of-type(odd) { 
-    background: #eee; 
+    background: #F4C0A4; 
 }
 
 th { 
-    background:rgb(169, 214, 216);
-    color: rgb(58, 107, 109);
+    background:#C67C58;
     font-weight: bold;
     padding: 6px; 
-    border: 1px solid rgb(58, 107, 109);
+    border: 1px solid #C67C58;
     text-align: center; 
 }
 
 td { 
     padding: 6px; 
-    border: 1px solid rgb(58, 107, 109);
+    border: 1px solid #F4C0A4;
     text-align: left; 
     width: 20vh;
 }
@@ -38,7 +41,6 @@ td {
     background-color:transparent;
     border: transparent;
     padding: 0px 4px;
-    color: rgb(58, 107, 109);
     border-radius: 3px;
     height: 5vh;
     width: 10vw;
@@ -54,12 +56,11 @@ td {
 
 .table-header {
     padding-top: 100px;
-    color: rgb(58, 107, 109);
+    color: #251804;
 }
 
 .table-header-my-patients {
     padding-top: 100px;
-    color: rgb(58, 107, 109);
 }
 
 .doc-display-doc-notes {
@@ -74,7 +75,6 @@ td {
     background-color: transparent;
     border: transparent;
     padding: 0px 25px;
-    color: rgb(58, 107, 109);
     cursor: pointer;
     border-radius: 3px;
     text-decoration: none;
@@ -83,10 +83,9 @@ td {
 
 .doc-add-file-btn{
     margin-top: 10px;
-    background-color:rgb(169,214,216);
-    border: 1px solid rgb(58, 107, 109);
+    background-color:#F4C0A4;
+    border: 1px solid #F4C0A4;
     padding: 0px 4px;
-    color: rgb(58, 107, 109);
     cursor: pointer;
     border-radius: 3px;
     font-size: 18px;
@@ -95,8 +94,7 @@ td {
 
 .patients-header-profile {
     width: 10%;
-    background:rgb(169, 214, 216);
-    color: rgb(58, 107, 109);
+    background:#C67C58;
     font-weight: bold;
 }
 
